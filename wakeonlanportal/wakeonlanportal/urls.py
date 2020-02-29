@@ -20,4 +20,5 @@ urlpatterns = [
     path('', include('devices.urls')),
     path('admin/', admin.site.urls),
     path('account/', include('accounts.urls')),
+    path('systemlog/', include('systemlog.urls')),
 ]
