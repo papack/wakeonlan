@@ -1,0 +1,22 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'accounts/login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<form class="form-signin">
+  <img class="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">WakeOnLan Portal</h1>
+  <label for="inputEmail" class="sr-only">Username</label>
+  <input type="text" id="inputEmail" class="form-control" placeholder="Username" required autofocus>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+  <button class="btn btn-lg btn-link btn-block" type="submit">Create Account</button>
+  <p class="mt-5 mb-3 text-muted">&copy;2020 <a href="https://www.wake-on-lan.org">wake-on-lan.org</a> </p>
+</form>
+
+{% endblock %}
