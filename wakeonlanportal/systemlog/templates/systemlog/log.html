@@ -4,6 +4,104 @@
 
 {% block content %}
 
-<h1>log</h1>
+<h1>Systemlog</h1>
 
+<p>the system log shows a maximum of 500 entries. If you have an older event, please limit it by a date. </p>
+
+<p>
+  <div class="form-group row">
+    <label for="example-datetime-local-input" class="col-2 col-form-label">from</label>
+    <div class="col-10">
+      <input class="form-control" type="datetime-local" value="" id="example-datetime-local-input">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="example-datetime-local-input" class="col-2 col-form-label">to</label>
+    <div class="col-10">
+      <input class="form-control" type="datetime-local" value="" id="example-datetime-local-input">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="example-datetime-local-input" class="col-2 col-form-label">username</label>
+    <div class="col-10">
+      <input class="form-control" value="" id="example-datetime-local-input">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="example-datetime-local-input" class="col-2 col-form-label">device</label>
+    <div class="col-10">
+      <input class="form-control" value="" id="example-datetime-local-input">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="example-datetime-local-input" class="col-2 col-form-label">Event ID</label>
+    <div class="col-10">
+      <input class="form-control" value="" id="example-datetime-local-input">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success">Ok</button>
+  <button type="submit" class="btn btn-outline-danger">Reset</button>
+</p>
+
+<hr>
+<p>
+  <input class="form-control" id="searchInput" type="text" placeholder="Filter current table..">
+</p>
+
+
+<div class="table-responsive">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Timestamp</th>
+        <th scope="col">EventID</th>
+        <th scope="col">Username</th>
+        <th scope="col">Device</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody id="searchable">
+      <tr>
+        <td>1.1.2020 23:11</td>
+        <td>1</td>
+        <td>mat</td>
+        <td>PC-1</td>
+        <td>mat versucht PC-1 aufzuwekcen</td>
+      </tr>
+      <tr>
+        <td>1.1.2020 23:11</td>
+        <td>1</td>
+        <td>mat</td>
+        <td>PC-1</td>
+        <td>mat versucht PC-1 aufzuwekcen</td>
+      </tr>
+      <tr>
+        <td>1.1.2020 23:11</td>
+        <td>1</td>
+        <td>mat</td>
+        <td>PC-1</td>
+        <td>mat versucht PC-1 aufzuwekcen</td>
+      </tr>
+      <tr>
+        <td>1.1.2020 23:11</td>
+        <td>1</td>
+        <td>mat</td>
+        <td>PC-1</td>
+        <td>mat versucht PC-1 aufzuwekcen</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+{% include "snippets/jquery_filter_table.html" %}
 {% endblock %}

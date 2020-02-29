@@ -4,6 +4,53 @@
 
 {% block content %}
 
-<h1>device</h1>
+<h1>Devices</h1>
 
+<p>
+  <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+</p>
+
+<div class="table-responsive">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Mac-Address</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody id="searchable">
+      <tr>
+        <td>PC-1</td>
+        <td>nice Description</td>
+        <td>11:11:11:11:11:11</td>
+        <td><span class="badge badge-success">online, last seen 1.1 17:00</span></td>
+        <td>
+          <a href="#">Poweron</a>,
+          <a href="#">Check Status</a>,
+          <a href="#">Edit</a>
+        </td>
+      </tr>
+      <tr>
+        <td>PC-2</td>
+        <td>Tolle beschreibung</td>
+        <td>22:33:55:ff:ee:ff</td>
+        <td><span class="badge badge-danger">offline, last seen 1.1 17:00</span></td>
+        <td>
+          <a href="#">Poweron</a>,
+          <a href="#">Check Status</a>,
+          <a href="#">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+  {% include "snippets/jquery_filter_table.html" %}
 {% endblock %}

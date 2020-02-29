@@ -3,8 +3,7 @@
 </h6>
 
 <ul class="nav flex-column">
-  <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "my_devices" %}active{% endif %}" href="{% url 'my_devices' %}">My Devices</a></li>
-  <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "all_devices" %}active{% endif %}" href="{% url 'all_devices' %}">All Devices</a></li>
+  <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "all_devices" %}active{% endif %}" href="{% url 'all_devices' %}">Show Devices</a></li>
   <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "new_device" %}active{% endif %}" href="{% url 'new_device' %}">New Device</a></li>
 </ul>
 
@@ -13,19 +12,17 @@
 </h6>
 
 <ul class="nav flex-column">
+  <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "list_user" %}active{% endif %}" href="{% url 'list_user' %}">Show Users</a></li>
   <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "new_user" %}active{% endif %}" href="{% url 'new_user' %}">New User</a></li>
-  <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "initial_activate" %}active{% endif %}" href="{% url 'initial_activate' %}">initial activation</a></li>
-  <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "edit_user" %}active{% endif %}" href="{% url 'edit_user' %}"">Edit Users</a></li>
   <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "change_password" %}active{% endif %}" href="{% url 'change_password' %}"">Change my Password</a></li>
 </ul>
 
 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-  <span>Systemlog</span>
+  <span>System</span>
 </h6>
 
 <ul class="nav flex-column">
-  <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "my_log" %}active{% endif %}" href="{% url 'my_log' %}">show my activities</a></li>
-  <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "systemlog" %}active{% endif %}" href="{% url 'systemlog' %}">Show Systemlog</a></li>
+  <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "systemlog" %}active{% endif %}" href="{% url 'systemlog' %}">Show log</a></li>
 </ul>
 
 

@@ -8,8 +8,8 @@ def login(request):
 def logout(request):
     return redirect('login')
 
-def activate(request):
-    return render(request, 'accounts/activate.html')
+def list(request):
+    return render(request, 'accounts/list.html')
 
 def new_user(request):
     return render(request, 'accounts/new.html')
