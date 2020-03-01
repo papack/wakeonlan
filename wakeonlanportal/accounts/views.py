@@ -1,12 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
 
-# Create your views here.
-
-def login(request):
-    return render(request, 'accounts/login.html')
-
-def logout(request):
-    return redirect('login')
 
 def list(request):
     return render(request, 'accounts/list.html')
