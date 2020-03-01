@@ -1,0 +1,9 @@
+.error input, .error select {
+  border: 1px red solid;
+}
+
+.errorlist li {
+  list-style: circle;
+  color: red;
+  font-style: italic;
+}
