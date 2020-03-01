@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'accounts',
     'devices',
     'information',
-    'systemlog',
 ]
 
 MIDDLEWARE = [
