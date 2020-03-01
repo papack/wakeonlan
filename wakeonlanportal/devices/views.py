@@ -6,6 +6,23 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
 
+from wakeonlan import send_magic_packet
+from django.contrib import messages
+
+@login_required
+def wakeup_device(request, name):
+
+    try:
+        device = Device.objects.get(name=name)
+    except ObjectDoesNotExist:
+        return redirect('/')
+
+    #Send the MagicPacet
+    send_magic_packet(str(device.mac))
+
+    messages.success(request, 'Magicpacket was sent to '+str(device)+' !')
+    return redirect('/')
+
 @login_required
 def all_devices(request):
     devices = Device.objects.all().order_by('name')

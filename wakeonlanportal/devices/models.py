@@ -9,4 +9,4 @@ class Device(models.Model):
     desc = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
-        return self.name+"("+self.mac+")"
+        return self.name+"("+str(self.mac)+")"

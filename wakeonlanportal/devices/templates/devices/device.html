@@ -6,6 +6,16 @@
 
 <h1>Devices</h1>
 
+{% if messages %}
+<div class="alert alert-success" role="alert">
+  <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
 <p>
   <input class="form-control" id="searchInput" type="text" placeholder="Search..">
 </p>
@@ -28,12 +38,12 @@
         <td>{{ d.desc }}</td>
         <td>{{ d.mac }}</td>
         <td>
-          <a class="badge badge-success" href="#">Poweron</a>
+          <a class="badge badge-success" href="{% url 'wakeup_device' name=d.name %}">Poweron</a>
 
           {% if request.user.is_staff %}
             <a class="badge badge-secondary" href="{% url 'edit_device' name=d.name %}">Edit</a>
           {% endif %}
-          
+
         </td>
       </tr>
       {% endfor %}

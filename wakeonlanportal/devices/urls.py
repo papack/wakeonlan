@@ -6,4 +6,5 @@ urlpatterns =[
     path('new', views.new_device, name="new_device"),
     path('<slug:name>/edit', views.edit_device, name="edit_device"),
     path('<slug:name>/del', views.del_device, name="del_device"),
+    path('<slug:name>/wakeup', views.wakeup_device, name="wakeup_device"),
 ]
