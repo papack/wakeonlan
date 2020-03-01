@@ -1,9 +1,9 @@
 from django.shortcuts import render, HttpResponse
-
-# Create your views here.
+from .models import Device
 
 def all_devices(request):
-    return render(request, 'devices/device.html')
+    devices = Device.objects.all().order_by('name')
+    return render(request, 'devices/device.html', {'devices':devices})
 
 def new_device(request):
     return render(request, 'devices/new.html')
