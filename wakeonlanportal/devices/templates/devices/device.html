@@ -29,7 +29,11 @@
         <td>{{ d.mac }}</td>
         <td>
           <a class="badge badge-success" href="#">Poweron</a>
-          <a class="badge badge-secondary" href="#">Edit</a>
+
+          {% if request.user.is_staff %}
+            <a class="badge badge-secondary" href="{% url 'edit_device' name=d.name %}">Edit</a>
+          {% endif %}
+          
         </td>
       </tr>
       {% endfor %}

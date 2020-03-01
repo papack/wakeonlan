@@ -4,7 +4,9 @@
 
 <ul class="nav flex-column">
   <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "all_devices" %}active{% endif %}" href="{% url 'all_devices' %}">Show Devices</a></li>
+  {% if request.user.is_staff %}
   <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "new_device" %}active{% endif %}" href="{% url 'new_device' %}">New Device</a></li>
+  {% endif %}
 </ul>
 
 <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
