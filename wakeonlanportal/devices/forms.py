@@ -17,7 +17,7 @@ class NewDeviceForm(forms.ModelForm):
             'mac' : forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'ff:ff:ff:ff:ff:ff'
+                    'placeholder': '1f2e3c4b5a6f'
                 }
             ),
             'desc' : forms.TextInput(
