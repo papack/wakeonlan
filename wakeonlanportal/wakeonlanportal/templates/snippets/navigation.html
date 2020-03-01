@@ -14,8 +14,10 @@
 </h6>
 
 <ul class="nav flex-column">
+  {% if request.user.is_staff %}
   <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "list_user" %}active{% endif %}" href="{% url 'list_user' %}">Show Users</a></li>
   <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "new_user" %}active{% endif %}" href="{% url 'new_user' %}">New User</a></li>
+  {% endif %}
   <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "change_password" %}active{% endif %}" href="{% url 'change_password' %}"">Change my Password</a></li>
 </ul>
 

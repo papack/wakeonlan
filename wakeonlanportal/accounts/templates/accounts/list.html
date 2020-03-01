@@ -15,30 +15,48 @@
     <thead>
       <tr>
         <th scope="col">Username</th>
-        <th scope="col">E-Mail</th>
         <th scope="col">Status</th>
+        <th scope="col">Privileges</th>
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody id="searchable">
+      {% for u in users %}
       <tr>
-        <td>mat</td>
-        <td>m@kjpjm.de</td>
-        <td><span class="badge badge-danger">disabled</span></td>
+        <td>{{ u.username }}</td>
+
+        {% if u.is_active %}
+          <td>Active</td>
+        {% else %}
+          <td>Locked</td>
+        {% endif %}
+
+        {% if u.is_staff %}
+          <td>Administrator</td>
+        {% else %}
+          <td>User</td>
+        {% endif %}
+
         <td>
-          <a href="#">activate user</a>,
-          <a href="#">change Password</a>
+
+          {% if u.is_active %}
+            <a class="badge badge-danger" href="{% url 'deactivate_user' u.username %}">deactivate</a>
+          {% else %}
+            <a class="badge badge-success" href="{% url 'activate_user' u.username %}">activate</a>
+          {% endif %}
+
+          {% if u.is_staff %}
+            <a class="badge badge-danger" href="{% url 'make_user' u.username %}">downgrade to user</a>
+          {% else %}
+            <a class="badge badge-success" href="{% url 'make_admin' u.username %}">promote to administrator</a>
+          {% endif %}
+
+          <a class="badge badge-primary" href="{% url 'edit_user' u.username %}">Edit</a>
+
+
         </td>
       </tr>
-      <tr>
-        <td>jalol</td>
-        <td>jalolrez@web.ce</td>
-        <td><span class="badge badge-success">active</span></td>
-        <td>
-          <a href="#">disable user</a>,
-          <a href="#">change Password</a>
-        </td>
-      </tr>
+      {% endfor %}
     </tbody>
   </table>
 
@@ -47,5 +65,5 @@
 {% endblock %}
 
 {% block script %}
-  {% include "snippets/jquery_filter_table.html" %}
+{% include "snippets/jquery_filter_table.html" %}
 {% endblock %}
