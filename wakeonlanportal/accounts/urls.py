@@ -16,5 +16,6 @@ urlpatterns =[
     path('<str:name>/make_admin/', views.make_admin, name="make_admin"),
     path('<str:name>/make_user/', views.make_user, name="make_user"),
     path('<str:name>/del/', views.del_user, name="del_user"),
+    path('password/', views.change_password, name="change_password"),
     path('change_password/', views.change_password, name="change_password"),
 ]
