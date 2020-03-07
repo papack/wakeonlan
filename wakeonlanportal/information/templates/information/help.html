@@ -4,6 +4,45 @@
 
 {% block content %}
 
-<h1>help</h1>
+<h1>"Wake on LAN": The key facts</h1>
+
+<p>"Wake on LAN" (WOL) means that a computer can be switched on remotely via its network card - even via the Internet.</p>
+
+<ul>
+  <li>Windows must be set correctly for WOL to work (see below).</li>
+  <li>Your network card must support "Wake on LAN".</li>
+  <li>In addition, you usually have to set up certain accesses - for example via FTP or VNC (Virtual Network Computing).</li>
+  <li>You also need a fixed IP address (or Domain / DynDNS).</li>
+  <li>For the network wake-up service to work, it sometimes has to be activated in the BIOS first.</li>
+</ul>
+
+<h1>Set "Wake on LAN" in Windows</h1>
+
+<p>
+  "Wake on LAN" is activated/deactivated in the Windows Device Manager in the network adapter properties. Under Windows 10, "Wake on LAN" may not work properly. This is mostly due to wrong drivers and wrong
+  Windows settings.
+</p>
+
+<p>
+  Install the correct driver for your network adapter. <br>
+  Press the key combination [Windows] + [R] to open the Run dialog. Type devmgmt.msc to open the device manager. <br>
+  Double click on your adapter in the "Network Adapters" category. <br>
+  Switch to the "Power Management" tab and check the box "Device can activate the computer from sleep mode". <br>
+  If you only use Magic Packets, you can also check the box "Only Magic Packet can activate computers from hibernation". <br>
+</p>
+
+<p>
+  Also (for Realtek adapters) look in the tab "Advanced" and find the entry "Wake up with Magic Packet" in the list. <br>
+  On the right, the drop-down menu should show the value "Enabled". If not, this changes to this value. Click on "OK".
+</p>
+
+<p>
+  Disables the Quick Start in Windows 10, which often causes problems in this context. Since Windows 8, Quick Start puts the PC into a special power saving mode when shutting down. However, Intel chips do not react then any more
+  on WOL.
+</p>
+
+<p>
+If "Wake on LAN" still doesn't work for you, the BIOS will boot. Depending on your computer, there are also settings for WOL that have to be activated first.
+</p>
 
 {% endblock %}
