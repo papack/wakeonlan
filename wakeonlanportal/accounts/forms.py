@@ -20,7 +20,7 @@ class NewUserForm(forms.ModelForm):
             'username' : forms.TextInput(
                 attrs={
                     'class': 'form-control',
-                    'placeholder': 'Computername'
+                    'placeholder': 'Username'
                 }
             ),
             'password' : forms.PasswordInput(
