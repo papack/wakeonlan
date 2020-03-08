@@ -1,0 +1,69 @@
+{% extends 'base/portal.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<h1>Userlist</h1>
+
+<p>
+  <input class="form-control" id="searchInput" type="text" placeholder="Search..">
+</p>
+
+<div class="table-responsive">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Username</th>
+        <th scope="col">Status</th>
+        <th scope="col">Privileges</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody id="searchable">
+      {% for u in users %}
+      <tr>
+        <td>{{ u.username }}</td>
+
+        {% if u.is_active %}
+          <td>Active</td>
+        {% else %}
+          <td>Locked</td>
+        {% endif %}
+
+        {% if u.is_staff %}
+          <td>Administrator</td>
+        {% else %}
+          <td>User</td>
+        {% endif %}
+
+        <td>
+
+          {% if u.is_active %}
+            <a class="badge badge-danger" href="{% url 'deactivate_user' u.username %}">deactivate</a>
+          {% else %}
+            <a class="badge badge-success" href="{% url 'activate_user' u.username %}">activate</a>
+          {% endif %}
+
+          {% if u.is_staff %}
+            <a class="badge badge-danger" href="{% url 'make_user' u.username %}">downgrade to user</a>
+          {% else %}
+            <a class="badge badge-success" href="{% url 'make_admin' u.username %}">promote to administrator</a>
+          {% endif %}
+
+          <a class="badge badge-primary" href="{% url 'edit_user' u.username %}">Edit</a>
+
+
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+{% include "snippets/jquery_filter_table.html" %}
+{% endblock %}
